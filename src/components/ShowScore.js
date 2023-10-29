@@ -37,8 +37,14 @@ export default function ShowScore({
     return null;
   }
   return (
-    <Box>
-        <Paper sx={{ display: "flex", flexDirection: "row", width: "100%" }}>
+    <Paper
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        width: "100%",
+        backgroundColor: "wheat",
+      }}
+    >
       <Grid container display={"flex"} direction={"row"} paddingX={4}>
         {score.map((item, idx) => {
           return (
@@ -48,10 +54,9 @@ export default function ShowScore({
           );
         })}
       </Grid>
+      <Typography variant="h5" sx={{ marginLeft: "1rem" }}>
+        Σκορ: {score.filter((item) => item === true).length}
+      </Typography>
     </Paper>
-     <Typography variant="h5" sx={{marginLeft:'1rem'}}>Σκορ: {score.filter((item) => item===true).length}</Typography>
-    </Box>
-    
-       
   );
 }
