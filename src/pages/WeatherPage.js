@@ -6,11 +6,14 @@ import { cityNames } from "../helper/cityNames";
 import PrevWeatherCard from "../components/PrevWeatherCard";
 import NextWeatherCard from "../components/NextWeatherCard";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import ShowScore from "../components/ShowScore";
 export default function WeatherPage() {
   const [prevResult, setPrevResult] = useState("");
   const [nextResult, setNextResult] = useState("");
   const [choiceMade, setChoiceMade] = useState(false);
   const [choice, setChoice] = useState(null);
+  const [score, setScore] = useState([]);
+
   async function getRandomCity() {
     const idx = Math.floor(Math.random() * (cityNames.length - 0) + 0);
     const weatherData = await fetchWeather({ query: cityNames[idx] });
@@ -28,7 +31,21 @@ export default function WeatherPage() {
     initialFetch();
   }, []);
 
-  
+  useEffect(() => {
+    setTimeout(() => {
+      if (choiceMade === true) {
+        setChoiceMade(false);
+        setPrevResult(nextResult);
+        handleNext();
+      }
+    }, [2500]);
+  }, [choiceMade]);
+
+  const handleNext = async () => {
+    const next = await getRandomCity();
+    setNextResult(next);
+  };
+
   return (
     <Grid
       container
@@ -38,24 +55,14 @@ export default function WeatherPage() {
       minHeight={"100vh"}
       alignContent={"center"}
     >
-      <Grid item>
-        <Typography
-          sx={{
-            fontSize: "3rem",
-            textAlign: "center",
-            fontWeight: 800,
-            letterSpacing: 6,
-            color: "white",
-            background: "#471873",
-            marginTop: 2,
-            borderRadius: 2,
-            paddingX: 2,
-          }}
-        >
-          WEATHER
-        </Typography>
-      </Grid>
-
+      <ShowScore
+        prevTemp={prevResult.main?.temp}
+        nextTemp={nextResult.main?.temp}
+        choice={choice}
+        score={score}
+        setScore={setScore}
+        choiceMade={choiceMade}
+      />
       <Grid
         container
         direction={"row"}
@@ -84,60 +91,62 @@ export default function WeatherPage() {
           )}
         </Grid>
       </Grid>
-
-      <Grid
-        container
-        xs={6}
-        spacing={0}
-        direction="row"
-        alignItems="center"
-        justifyContent="center"
-        minWidth={"100vw"}
-        mt={2}
-      >
-        <Grid item xs={1} textAlign={"center"}>
-          <Typography>Higher</Typography>
-          <IconButton
-            size="large"
-            disableRipple
-            disableFocusRipple
-            onClick={() => {
-              setChoiceMade(true);
-              setChoice("higher");
-            }}
-          >
-            <ArrowUpwardIcon
-              sx={{
-                color: "green",
-                padding: "2rem",
-                background: "#c9b7b5",
-                borderRadius: "1rem",
+      {choiceMade === false ? (
+        <Grid
+          container
+          xs={6}
+          spacing={0}
+          direction="row"
+          alignItems="center"
+          justifyContent="center"
+          minWidth={"100vw"}
+          mt={2}
+          gap={2}
+        >
+          <Grid item xs={1} textAlign={"center"}>
+            <Typography>Higher</Typography>
+            <IconButton
+              size="large"
+              disableRipple
+              disableFocusRipple
+              onClick={() => {
+                setChoiceMade(true);
+                setChoice("higher");
               }}
-            />
-          </IconButton>
-        </Grid>
-        <Grid item xs={1} textAlign={"center"}>
-          <Typography>Lower</Typography>
-          <IconButton
-            size="large"
-            disableFocusRipple
-            disableRipple
-            onClick={() => {
-              setChoiceMade(true);
-              setChoice("lower");
-            }}
-          >
-            <ArrowDownwardIcon
-              sx={{
-                color: "red",
-                padding: "2rem",
-                background: "#c9b7b5",
-                borderRadius: "1rem",
+            >
+              <ArrowUpwardIcon
+                sx={{
+                  color: "green",
+                  padding: "2rem",
+                  background: "#c9b7b5",
+                  borderRadius: "1rem",
+                }}
+              />
+            </IconButton>
+          </Grid>
+          <Grid item xs={1} textAlign={"center"}>
+            <Typography>Lower</Typography>
+            <IconButton
+              size="large"
+              disableFocusRipple
+              disableRipple
+              onClick={() => {
+                setChoiceMade(true);
+                setChoice("lower");
               }}
-            />
-          </IconButton>
+            >
+              <ArrowDownwardIcon
+                sx={{
+                  color: "red",
+                  padding: "2rem",
+                  background: "#c9b7b5",
+                  borderRadius: "1rem",
+                }}
+              />
+            </IconButton>
+          </Grid>
         </Grid>
-      </Grid>
+      ) : null}
     </Grid>
   );
 }
