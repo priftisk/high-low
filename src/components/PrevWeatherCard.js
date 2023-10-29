@@ -5,7 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 export default function PrevWeatherCard({ cityName, temp, country }) {
   return (
-    <Card sx={{ minWidth: 200, background: "#d1e0d5" }}>
+    <Card sx={{ minWidth: 200, background: "#4d524e" }}>
       <CardContent>
         <Box
           paddingLeft={2}

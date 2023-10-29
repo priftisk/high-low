@@ -5,7 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 export default function NextWeatherCard({ cityName, temp, choiceMade, country }) {
   return (
-    <Card sx={{ minWidth: 200, background: "#d1e0d5" }}>
+    <Card sx={{ minWidth: 200, background: "#4d524e" }}>
       <CardContent>
         <Box
           paddingLeft={2}
@@ -32,7 +32,7 @@ export default function NextWeatherCard({ cityName, temp, choiceMade, country })
                 <Typography variant="h5" component="div">
                   {cityName},
                 </Typography>
-                <Typography variant="body1" component="div" mr={2} mt={1}>
+                <Typography variant="body1" component="div">
                   {country}
                 </Typography>
               </Box>

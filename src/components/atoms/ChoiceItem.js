@@ -1,5 +1,5 @@
 import { Check } from "@mui/icons-material";
-import { Box, Divider, Icon, Typography } from "@mui/material";
+import { Box, Icon, Typography } from "@mui/material";
 import DangerousIcon from "@mui/icons-material/Dangerous";
 
 export default function ChoiceItem({ score, index }) {
@@ -10,18 +10,21 @@ export default function ChoiceItem({ score, index }) {
         flexDirection={"row"}
         justifyItems={"center"}
         alignItems={"center"}
-        maxWidth={"1rem"}
-        minHeight={"4rem"}
+        minWidth={"2rem"}
+        height={'2rem'}
+        padding={'0.5rem'}  
+        sx={{backgroundColor:'#63696b', borderRadius:'0.5rem'}}
       >
-         <Typography component={'span'} sx={{fontSize:'1rem'}}>{index + 1}.</Typography>
+        <Typography component={"span"} sx={{ fontSize: "1rem" }}>
+          {index + 1}.
+        </Typography>
         <Icon>
           {score === true ? (
-            <Check sx={{ color: "green" }} />
+            <Check sx={{ color: "#4abd64" }} />
           ) : (
-            <DangerousIcon sx={{ color: "red" }} />
+            <DangerousIcon sx={{ color: "#f5364c" }} />
           )}
         </Icon>
-        {/* <Divider orientation="horizontal" flexItem sx={{paddingTop:'0.5rem', paddingBottom:'0.5rem'}}/> */}
       </Box>
     );
   } else {
