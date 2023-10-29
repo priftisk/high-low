@@ -64,7 +64,8 @@ export default function WeatherPage() {
       />
       <Grid
         container
-        direction={"row"}
+        display={'flex'}
+        flexDirection={"row"}
         gap={2}
         alignContent={"center"}
         justifyContent={"center"}
@@ -74,6 +75,7 @@ export default function WeatherPage() {
           {prevResult && (
             <PrevWeatherCard
               cityName={prevResult.name}
+              country={prevResult.sys.country}
               temp={prevResult.main.temp}
               description={prevResult.weather[0].description}
             />
@@ -83,6 +85,7 @@ export default function WeatherPage() {
           {nextResult && (
             <NextWeatherCard
               cityName={nextResult.name}
+              country={nextResult.sys.country}
               temp={nextResult.main.temp}
               description={nextResult.weather[0].description}
               choiceMade={choiceMade}
