@@ -5,7 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 export default function NextWeatherCard({ cityName, temp, choiceMade, country }) {
   return (
-    <Card sx={{ minWidth: 275, background: "#d1e0d5" }}>
+    <Card sx={{ minWidth: 200, background: "#d1e0d5" }}>
       <CardContent>
         <Box
           paddingLeft={2}
@@ -23,22 +23,23 @@ export default function NextWeatherCard({ cityName, temp, choiceMade, country })
             </Typography>
             <Box
               display={"flex"}
-              flexDirection={"row"}
-              justifyContent={"center"}
+              flexDirection={"column"}
+              justifyItems={"center"}
               textAlign={"center"}
               alignItems={"center"}
-              justifyItems={'center'}
             >
-               <Typography variant="h5" component="div">
-                {cityName},
-              </Typography>
-              <Typography variant="body1" component="div" mr={2} mt={1}>
-                {country}
-              </Typography>
+              <Box display={"flex"} flexDirection={"row"} textAlign={'center'} justifyItems={'center'} alignItems={'center'}>
+                <Typography variant="h5" component="div">
+                  {cityName},
+                </Typography>
+                <Typography variant="body1" component="div" mr={2} mt={1}>
+                  {country}
+                </Typography>
+              </Box>
               {choiceMade === true ? (
-                <Typography variant="h5">{temp} °C</Typography>
+                <Typography fontSize={'3rem'} textAlign={'center'}>{temp} °C</Typography>
               ) : (
-                <Typography variant="h5">???</Typography>
+                <Typography fontSize={'3rem'} textAlign={'center'}>???</Typography>
               )}
             </Box>
           </Box>

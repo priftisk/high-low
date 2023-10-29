@@ -32,5 +32,5 @@ export const cityNames = [
     "Mackay", "Rockhampton", "Bundaberg", "Gladstone", "Cairns", "Townsville", "Newcastle", "Wollongong", "Launceston",
     "Albury", "Warrnambool", "Dubbo", "Orange", "Bathurst", "Tamworth", "Coffs Harbour", "Lismore", "Wagga Wagga", "Hervey Bay",
     "Mackay", "Rockhampton", "Bundaberg", "Gladstone", "Cairns", "Townsville", "Newcastle", "Wollongong", "Launceston",
-    "Ballarat", "Bendigo", "Shepparton", "Mildura", "Sunbury",
+    "Ballarat", "Bendigo", "Shepparton", "Mildura", "Sunbury", "Larisa", "Kalamata", "Glasgow", "Edinburgh"
 ]  
