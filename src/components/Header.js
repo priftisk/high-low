@@ -12,7 +12,7 @@ export default function Header() {
       flexGrow: 1,
     },
     appBar: {
-      backgroundColor: "#5e4b4b",
+      backgroundColor: '#302642',
       opacity: "90%",
     },
     toolbar: {
@@ -48,9 +48,9 @@ export default function Header() {
       alignItems: "center",
       borderRadius: "1rem",
       paddingX: 2,
-      transition: "background-color 0.3s", // Add a transition for smooth color change
+      transition: "background-color 0.3s",
       "&:hover": {
-        backgroundColor: "#ad8b6c", // Change the background color on hover
+        backgroundColor: "#140b24", 
       },
       cursor:'pointer',
     },
