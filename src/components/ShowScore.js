@@ -1,4 +1,4 @@
-import { Divider, Grid } from "@mui/material";
+import { Box, Grid, Paper, Typography } from "@mui/material";
 import { useEffect } from "react";
 import ChoiceItem from "./atoms/ChoiceItem";
 
@@ -21,9 +21,9 @@ export default function ShowScore({
           }
         } else if (choice === "lower") {
           if (prevTemp > nextTemp) {
-            setScore([...score, false]);
-          } else {
             setScore([...score, true]);
+          } else {
+            setScore([...score, false]);
           }
         }
       }
@@ -37,14 +37,21 @@ export default function ShowScore({
     return null;
   }
   return (
-    <Grid container display={'flex'} direction={'row'} paddingX={4} sx={{backgroundColor:'wheat'}}>
-      {score.map((item, idx) => {
-        return (
-          <Grid item key={idx} xs={1} flexDirection={'row'} display={'flex'}>
-            <ChoiceItem score={item} index={idx}/>
-          </Grid>
-        );
-      })}
-    </Grid>
+    <Box>
+        <Paper sx={{ display: "flex", flexDirection: "row", width: "100%" }}>
+      <Grid container display={"flex"} direction={"row"} paddingX={4}>
+        {score.map((item, idx) => {
+          return (
+            <Grid item key={idx} xs={1} flexDirection={"row"} display={"flex"}>
+              <ChoiceItem score={item} index={idx} />
+            </Grid>
+          );
+        })}
+      </Grid>
+    </Paper>
+     <Typography variant="h5" sx={{marginLeft:'1rem'}}>Σκορ: {score.filter((item) => item===true).length}</Typography>
+    </Box>
+    
+       
   );
 }

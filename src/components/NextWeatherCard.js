@@ -19,7 +19,7 @@ export default function NextWeatherCard({ cityName, temp, choiceMade }) {
               color="text.secondary"
               gutterBottom
             >
-              Current Weather
+              Next
             </Typography>
             <Box
               gap={2}

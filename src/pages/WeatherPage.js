@@ -13,7 +13,6 @@ export default function WeatherPage() {
   const [choiceMade, setChoiceMade] = useState(false);
   const [choice, setChoice] = useState(null);
   const [score, setScore] = useState([]);
-
   async function getRandomCity() {
     const idx = Math.floor(Math.random() * (cityNames.length - 0) + 0);
     const weatherData = await fetchWeather({ query: cityNames[idx] });
@@ -34,14 +33,14 @@ export default function WeatherPage() {
   useEffect(() => {
     setTimeout(() => {
       if (choiceMade === true) {
-        setChoiceMade(false);
-        setPrevResult(nextResult);
         handleNext();
       }
     }, [2500]);
   }, [choiceMade]);
 
   const handleNext = async () => {
+    setChoiceMade(false);
+    setPrevResult(nextResult);
     const next = await getRandomCity();
     setNextResult(next);
   };
@@ -94,7 +93,7 @@ export default function WeatherPage() {
       {choiceMade === false ? (
         <Grid
           container
-          xs={6}
+          xs={12}
           spacing={0}
           direction="row"
           alignItems="center"
@@ -145,6 +144,24 @@ export default function WeatherPage() {
               />
             </IconButton>
           </Grid>
+        </Grid>
+      ) : choiceMade === true ? (
+        <Grid
+          item
+          xs={12}
+          direction={"flex"}
+          flexDirection={"row"}
+          gap={1}
+          marginTop={4}
+          textAlign={'center'}
+        >
+          <Typography
+            variant="h4"
+            sx={{ color: score[score.length - 1] === true ? "green" : "red" }}
+          >
+            {score[score.length - 1] === true ? "Σωστή" : "Λάθος"}
+          </Typography>
+          <Typography variant="h4">επιλογή</Typography>
         </Grid>
       ) : null}
     </Grid>
