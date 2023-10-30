@@ -40,7 +40,7 @@ export default function ShowScore({
     <Paper
       sx={{
         display: "flex",
-        width: "100%",
+        width: "97.8vw",
         backgroundColor: "#7e8780",
         paddingY: ".75rem",
         paddingInline: "1rem",

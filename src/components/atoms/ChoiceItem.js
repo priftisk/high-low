@@ -8,9 +8,9 @@ export default function ChoiceItem({ score, index }) {
       <Box
         display={"flex"}
         flexDirection={"row"}
-        justifyItems={"center"}
+        justifyContent={'space-between'}
         alignItems={"center"}
-        minWidth={"2rem"}
+        minWidth={"2.8rem"}
         height={'2rem'}
         padding={'0.5rem'}  
         sx={{backgroundColor:'#63696b', borderRadius:'0.5rem'}}

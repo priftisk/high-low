@@ -1,4 +1,4 @@
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography, Box } from "@mui/material";
 import { useEffect, useState } from "react";
 import fetchWeather from "../components/helper/fetch";
 import { cityNames } from "../helper/cityNames";
@@ -52,7 +52,7 @@ export default function WeatherPage() {
       display={"flex"}
       flexDirection={"column"}
       backgroundColor="#262926"
-      minHeight={"100vh"}
+      minHeight={"90vh"}
       alignContent={"center"}
     >
       <ShowScore
@@ -63,9 +63,6 @@ export default function WeatherPage() {
         setScore={setScore}
         choiceMade={choiceMade}
       />
-      <Typography variant="h3" sx={{ marginLeft: "1rem", color: "white" }}>
-        Σκορ: {score.filter((item) => item === true).length}
-      </Typography>
       <Grid
         container
         display={"flex"}
@@ -140,6 +137,27 @@ export default function WeatherPage() {
           <IsChoiceCorrect score={score} />
         </Grid>
       ) : null}
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        minHeight="10vh"
+      >
+        <Typography
+          variant="h3"
+          fontWeight={'bold'}
+          sx={{
+            color: "black",
+            background: "#7e8780",
+            minWidth: 200,
+            width: 220,
+            borderRadius: "1rem",
+            padding:1
+          }}
+        >
+          Σκορ: {score.filter((item) => item === true).length}
+        </Typography>
+      </Box>
     </Grid>
   );
 }
