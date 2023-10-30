@@ -11,7 +11,7 @@ export const cityNames = [
     "Riyadh", "Doha", "Kuwait City", "Abu Dhabi", "Tel Aviv", "Jerusalem", "Amman", "Baghdad", "Tehran", "Karachi",
     "Mumbai", "Delhi", "Kathmandu", "Colombo", "Dhaka", "Yangon", "Hanoi", "Ho Chi Minh City", "Manila", "Phnom Penh",
     "Jakarta", "Sydney", "Melbourne", "Brisbane", "Perth", "Auckland", "Wellington", "Suva", "Nuku'alofa",
-    "Apia", "Honiara", "Port Moresby", "Port Vila", "Nouméa", "Papeete", "Bora Bora", "Rarotonga", "Tahiti", "Hobart",
+    "Apia", "Honiara", "Port Moresby", "Port Vila", "Nouméa", "Papeete", "Rarotonga", "Tahiti", "Hobart",
     "Darwin", "Adelaide", "Cairns", "Christchurch", "Wellington", "Rotorua", "Queenstown", "Auckland", "Dunedin",
     "Invercargill", "Hamilton", "Napier", "Palmerston North", "Tauranga", "Whangarei", "Nelson", "New Plymouth",
     "Gisborne", "Dunedin", "Queenstown", "Christchurch", "Cairns", "Gold Coast", "Brisbane", "Sydney", "Melbourne",

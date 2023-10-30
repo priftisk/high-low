@@ -1,6 +1,6 @@
 import { Grid } from "@mui/material";
-import MainWeatherPage from "./MainPageWeather";
-import MainPageMovies from "./MainPageMovies";
+import MainWeatherPage from "../MainPageWeather";
+import MainPageMovies from "./MainPagePopulations";
 export default function MainPageCards() {
   return (
     <Grid

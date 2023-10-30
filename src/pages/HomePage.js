@@ -1,8 +1,8 @@
-import MainPageCards from "../components/MainPageCards"
-export default function HomePage () {
-    return(
-        <>
-            <MainPageCards />
-        </>
-    )
+import MainPageCards from "../components/MainPage/MainPageCards";
+export default function HomePage() {
+  return (
+    <>
+      <MainPageCards />
+    </>
+  );
 }

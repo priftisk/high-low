@@ -1,8 +1,8 @@
 import { IconButton, Typography, Box } from "@mui/material";
-import LocalMoviesIcon from "@mui/icons-material/LocalMovies";
+import GroupsIcon from '@mui/icons-material/Groups';
 import { useNavigate } from "react-router-dom";
 import Slide from "@mui/material/Slide";
-export default function MainPageMovies() {
+export default function MainPagePopulations() {
   const navigate = useNavigate();
   return (
     <Slide direction="down" in={true} mountOnEnter timeout={500}>
@@ -29,10 +29,10 @@ export default function MainPageMovies() {
           }}
           size="10rem"
         >
-          <LocalMoviesIcon sx={{ fontSize: "10rem" }} />
+          <GroupsIcon sx={{ fontSize: "10rem" }} />
         </IconButton>
         <Typography sx={{ fontSize: "2rem", color: "white" }}>
-          Movies
+          Population
         </Typography>
       </Box>
     </Slide>
