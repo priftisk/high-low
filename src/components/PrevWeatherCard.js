@@ -1,11 +1,27 @@
-import * as React from "react";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
+import { useState, useEffect } from "react";
+import Slide from "@mui/material/Slide";
 export default function PrevWeatherCard({ cityName, temp, country }) {
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    setShow(true);
+  }, []);
   return (
-    <Card sx={{ minWidth: 200, background: "#4d524e", borderRadius:'1rem', border:1 , borderWidth:'0.5rem' }}>
+    <Slide direction="right" in={show} mountOnEnter timeout={500}>
+    <Card
+      sx={{
+        minWidth: 200,
+        background: "#4d524e",
+        borderRadius: "1rem",
+        borderBottom: 1,
+        borderRight: 1,
+        borderWidth: "0.5rem",
+        width: 300,
+      }}
+    >
       <CardContent>
         <Box
           paddingLeft={2}
@@ -14,11 +30,7 @@ export default function PrevWeatherCard({ cityName, temp, country }) {
           justifyContent="space-between"
         >
           <Box display={"flex"} flexDirection={"column"}>
-            <Typography
-              sx={{ fontSize: 14 }}
-              color="white"
-              gutterBottom
-            >
+            <Typography sx={{ fontSize: 14 }} color="white" gutterBottom>
               Current
             </Typography>
             <Box
@@ -37,11 +49,12 @@ export default function PrevWeatherCard({ cityName, temp, country }) {
                 </Typography>
               </Box>
 
-              <Typography fontSize={'3rem'}>{temp} °C</Typography>
+              <Typography fontSize={"3rem"}>{temp} °C</Typography>
             </Box>
           </Box>
         </Box>
       </CardContent>
     </Card>
+    </Slide>
   );
 }

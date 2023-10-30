@@ -1,4 +1,4 @@
-import { Grid, Paper, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import fetchWeather from "../components/helper/fetch";
 import { cityNames } from "../helper/cityNames";
@@ -7,7 +7,6 @@ import NextWeatherCard from "../components/NextWeatherCard";
 import ShowScore from "../components/ShowScore";
 import HigherButton from "../components/atoms/HigherButton";
 import LowerButton from "../components/atoms/LowerButton";
-import CircularDeterminate from "../components/atoms/CircularDeterminate";
 import IsChoiceCorrect from "../components/atoms/IsChoiceCorrect";
 export default function WeatherPage() {
   const [prevResult, setPrevResult] = useState("");
@@ -57,8 +56,8 @@ export default function WeatherPage() {
       alignContent={"center"}
     >
       <ShowScore
-        prevTemp={prevResult.main?.temp}
-        nextTemp={nextResult.main?.temp}
+        prevTemp={prevResult?.main?.temp}
+        nextTemp={nextResult?.main?.temp}
         choice={choice}
         score={score}
         setScore={setScore}
@@ -86,6 +85,7 @@ export default function WeatherPage() {
             />
           )}
         </Grid>
+
         <Grid item>
           {nextResult && (
             <NextWeatherCard

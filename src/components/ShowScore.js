@@ -1,4 +1,4 @@
-import { Box, Grid, Paper, Typography } from "@mui/material";
+import { Grid, Paper } from "@mui/material";
 import { useEffect } from "react";
 import ChoiceItem from "./atoms/ChoiceItem";
 
@@ -42,11 +42,18 @@ export default function ShowScore({
         display: "flex",
         width: "100%",
         backgroundColor: "#7e8780",
-        paddingY:'.75rem',
-        paddingInline:'1rem'
+        paddingY: ".75rem",
+        paddingInline: "1rem",
       }}
     >
-      <Grid container display={"flex"} direction={"row"} spacing={2} width={'100%'} paddingX={2}>
+      <Grid
+        container
+        display={"flex"}
+        direction={"row"}
+        spacing={2}
+        width={"100%"}
+        paddingX={2}
+      >
         {score.map((item, idx) => {
           return (
             <Grid item key={idx} xs={1} flexDirection={"row"} display={"flex"}>
