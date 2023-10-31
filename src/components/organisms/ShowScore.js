@@ -1,10 +1,10 @@
 import { Grid, Paper } from "@mui/material";
 import { useEffect } from "react";
-import ChoiceItem from "./atoms/ChoiceItem";
+import ChoiceItem from "../atoms/ChoiceItem";
 
 export default function ShowScore({
-  prevTemp,
-  nextTemp,
+  prevResult,
+  nextResult,
   score,
   setScore,
   choiceMade,
@@ -12,15 +12,15 @@ export default function ShowScore({
 }) {
   const calculateScore = () => {
     if (choiceMade === true) {
-      if (prevTemp && nextTemp) {
+      if (prevResult && nextResult) {
         if (choice === "higher") {
-          if (prevTemp < nextTemp) {
+          if (prevResult < nextResult) {
             setScore([...score, true]);
           } else {
             setScore([...score, false]);
           }
         } else if (choice === "lower") {
-          if (prevTemp > nextTemp) {
+          if (prevResult > nextResult) {
             setScore([...score, true]);
           } else {
             setScore([...score, false]);

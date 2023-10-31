@@ -1,10 +1,10 @@
 import { Grid, Typography, Box } from "@mui/material";
 import { useEffect, useState } from "react";
 import fetchWeather from "../components/helper/fetch";
-import { cityNames } from "../helper/cityNames";
-import PrevWeatherCard from "../components/Weather/PrevWeatherCard";
-import NextWeatherCard from "../components/Weather/NextWeatherCard";
-import ShowScore from "../components/ShowScore";
+import { cityNames } from "../data/cityNames";
+import PrevWeatherCard from "../components/organisms/Weather/PrevWeatherCard";
+import NextWeatherCard from "../components/organisms/Weather/NextWeatherCard";
+import ShowScore from "../components/organisms/ShowScore";
 import HigherButton from "../components/atoms/HigherButton";
 import LowerButton from "../components/atoms/LowerButton";
 import IsChoiceCorrect from "../components/atoms/IsChoiceCorrect";
@@ -56,8 +56,8 @@ export default function WeatherPage() {
       alignContent={"center"}
     >
       <ShowScore
-        prevTemp={prevResult?.main?.temp}
-        nextTemp={nextResult?.main?.temp}
+        prevResult={prevResult?.main?.temp}
+        nextResult={nextResult?.main?.temp}
         choice={choice}
         score={score}
         setScore={setScore}
@@ -82,7 +82,9 @@ export default function WeatherPage() {
             />
           )}
         </Grid>
-
+        <Grid item mt={5}>
+          <Typography color={'white'} fontSize={'3.5rem'}>VS</Typography>
+        </Grid>
         <Grid item>
           {nextResult && (
             <NextWeatherCard
@@ -145,14 +147,14 @@ export default function WeatherPage() {
       >
         <Typography
           variant="h3"
-          fontWeight={'bold'}
+          fontWeight={"bold"}
           sx={{
             color: "black",
             background: "#7e8780",
             minWidth: 200,
             width: 220,
             borderRadius: "1rem",
-            padding:1
+            padding: 1,
           }}
         >
           Σκορ: {score.filter((item) => item === true).length}

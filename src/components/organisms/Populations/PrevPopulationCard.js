@@ -4,20 +4,13 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { useState, useEffect } from "react";
 import Slide from "@mui/material/Slide";
-export default function NextPopulationCard({ cityName, population, population_formatted, choiceMade }) {
+export default function PrevPopulationCard({ cityName, country, population_formatted }) {
   const [show, setShow] = useState(false);
   useEffect(() => {
-    setShow(true);
+    setShow(true);  
   }, []);
-//   useEffect(() => {
-//     if (choiceMade === true) {
-//       setTimeout(() => {
-//         setShow(false);
-//       }, [1500]);
-//     }
-//   }, [choiceMade]);
   return (
-    <Slide direction="left" in={show} mountOnEnter timeout={500}>
+    <Slide direction="right" in={show} mountOnEnter timeout={500}>
     <Card
       sx={{
         minWidth: 200,
@@ -51,9 +44,12 @@ export default function NextPopulationCard({ cityName, population, population_fo
                 <Typography variant="h5" component="div">
                   {cityName},
                 </Typography>
+                <Typography variant="body1" component="div" mr={2} mt={1}>
+                  {country}
+                </Typography>
               </Box>
 
-              <Typography fontSize={"3rem"}>{choiceMade ?  population_formatted : '???'}</Typography>
+              <Typography fontSize={"3rem"}>{population_formatted}</Typography>
             </Box>
           </Box>
         </Box>
