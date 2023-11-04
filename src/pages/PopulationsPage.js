@@ -98,7 +98,7 @@ export default function PopulationsPage() {
           mt={2}
           gap={2}
         >
-          <Grid item xs={1} textAlign={"center"}>
+          <Grid item xxs={2} md={1} textAlign={"center"}>
             <HigherButton
               onClick={() => {
                 setChoiceMade(true);
@@ -106,7 +106,7 @@ export default function PopulationsPage() {
               }}
             />
           </Grid>
-          <Grid item xs={1} textAlign={"center"}>
+          <Grid item xs={2} md={1}textAlign={"center"}>
             <LowerButton
               onClick={() => {
                 setChoiceMade(true);

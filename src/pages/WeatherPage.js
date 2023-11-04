@@ -109,7 +109,7 @@ export default function WeatherPage() {
           mt={2}
           gap={2}
         >
-          <Grid item xs={1} textAlign={"center"}>
+          <Grid item xs={4} md={1} textAlign={"center"}>
             <HigherButton
               onClick={() => {
                 setChoiceMade(true);
@@ -117,7 +117,7 @@ export default function WeatherPage() {
               }}
             />
           </Grid>
-          <Grid item xs={1} textAlign={"center"}>
+          <Grid item xs={4} md={1} textAlign={"center"}>
             <LowerButton
               onClick={() => {
                 setChoiceMade(true);
