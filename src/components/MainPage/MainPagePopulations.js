@@ -1,10 +1,11 @@
 import { IconButton, Typography, Box } from "@mui/material";
 import GroupsIcon from "@mui/icons-material/Groups";
 import Slide from "@mui/material/Slide";
+import { Link } from "react-router-dom";
 export default function MainPagePopulations() {
   return (
     <Slide direction="down" in={true} mountOnEnter timeout={500}>
-      <a href="/population" style={{textDecoration:'none'}}>
+      <Link to="/population" style={{textDecoration:'none'}}>
         <Box
           sx={{
             width: "20rem",
@@ -25,7 +26,6 @@ export default function MainPagePopulations() {
             disableRipple
             sx={{
               color: "white",
-              // "&:hover": { color: "#9a62bd" },
               transition: "color 0.5s",
             }}
             size="10rem"
@@ -39,7 +39,7 @@ export default function MainPagePopulations() {
             Population
           </Typography>
         </Box>
-      </a>
+      </Link>
     </Slide>
   );
 }

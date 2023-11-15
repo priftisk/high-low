@@ -1,10 +1,11 @@
 import { IconButton, Typography, Box } from "@mui/material";
 import ThermostatIcon from "@mui/icons-material/Thermostat";
 import Slide from "@mui/material/Slide";
+import { Link } from "react-router-dom";
 export default function MainWeatherPage() {
   return (
     <Slide direction="up" in={true} mountOnEnter timeout={500}>
-      <a href="/weather" style={{textDecoration:'none'}}>
+      <Link to="/weather" style={{textDecoration:'none'}}>
         <Box
           sx={{
             width: "20rem",
@@ -23,10 +24,8 @@ export default function MainWeatherPage() {
             className="icon"
             disableFocusRipple
             disableRipple
-            // onClick={() => navigate("/weather")}
             sx={{
               color: "white",
-              // "&:hover": { color: "#9a62bd" },
               transition: "color 0.5s",
             }}
           >
@@ -39,7 +38,7 @@ export default function MainWeatherPage() {
             Weather
           </Typography>
         </Box>
-      </a>
+      </Link>
     </Slide>
   );
 }
