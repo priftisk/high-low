@@ -4,7 +4,7 @@ import Slide from "@mui/material/Slide";
 export default function MainPagePopulations() {
   return (
     <Slide direction="down" in={true} mountOnEnter timeout={500}>
-      <a href="/movies" style={{textDecoration:'none'}}>
+      <a href="/population" style={{textDecoration:'none'}}>
         <Box
           sx={{
             width: "20rem",
