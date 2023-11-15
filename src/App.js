@@ -1,11 +1,11 @@
 import HomePage from "./pages/HomePage";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, HashRouter } from "react-router-dom";
 import WeatherPage from "./pages/WeatherPage";
 import PopulationsPage from "./pages/PopulationsPage";
 import Layout from "./pages/Layout";
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path='/' element={<Layout />} >
           <Route index path="high-low" element={<HomePage />} />
@@ -14,7 +14,7 @@ function App() {
         </Route>
         
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
