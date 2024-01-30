@@ -12,9 +12,30 @@ export default function NextWeatherCard({
   country,
 }) {
   const [show, setShow] = useState(false);
+  const [displayTemp, setDisplayTemp] = useState(0);
   useEffect(() => {
     setShow(true);
   }, [temp]);
+
+  useEffect(() => {
+    if (choiceMade) {
+      let startTime = Date.now();
+      const updateDisplayTemp = () => {
+        const elapsedTime = Date.now() - startTime;
+        const progress = elapsedTime / 1000;
+
+        if (progress < 1) {
+          const newTemp = Math.round(progress * temp);
+          setDisplayTemp(newTemp);
+          requestAnimationFrame(updateDisplayTemp);
+        } else {
+          setDisplayTemp(temp);
+        }
+      };
+
+      updateDisplayTemp();
+    }
+  }, [choiceMade, temp]);
   useEffect(() => {
     if (choiceMade === true) {
       setTimeout(() => {
@@ -65,15 +86,9 @@ export default function NextWeatherCard({
                     {country}
                   </Typography>
                 </Box>
-                {choiceMade === true ? (
-                  <Typography fontSize={"3rem"} textAlign={"center"}>
-                    {temp} °C
-                  </Typography>
-                ) : (
-                  <Typography fontSize={"3rem"} textAlign={"center"}>
-                    ???
-                  </Typography>
-                )}
+                <Typography fontSize={"3rem"} textAlign={"center"}>
+                  {choiceMade ? displayTemp : "???"} °C
+                </Typography>
               </Box>
             </Box>
           </Box>

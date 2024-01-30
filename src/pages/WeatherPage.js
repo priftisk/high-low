@@ -136,7 +136,7 @@ export default function WeatherPage() {
           marginTop={4}
           textAlign={"center"}
         >
-          <IsChoiceCorrect score={score} />
+          <IsChoiceCorrect score={score} choiceMade={choiceMade}/>
         </Grid>
       ) : null}
       <Box
