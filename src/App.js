@@ -1,5 +1,5 @@
 import HomePage from "./pages/HomePage";
-import { Routes, Route, HashRouter, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import WeatherPage from "./pages/WeatherPage";
 import PopulationsPage from "./pages/PopulationsPage";
 import Layout from "./pages/Layout";
