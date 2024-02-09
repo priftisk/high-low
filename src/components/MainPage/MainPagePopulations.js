@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function MainPagePopulations() {
   return (
     <Slide direction="down" in={true} mountOnEnter timeout={500}>
-      <Link to="/population" style={{textDecoration:'none'}}>
+      <Link to="population" style={{textDecoration:'none'}}>
         <Box
           sx={{
             width: "20rem",

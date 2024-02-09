@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function MainWeatherPage() {
   return (
     <Slide direction="up" in={true} mountOnEnter timeout={500}>
-      <Link to="/weather" style={{textDecoration:'none'}}>
+      <Link to="weather" style={{textDecoration:'none'}}>
         <Box
           sx={{
             width: "20rem",
