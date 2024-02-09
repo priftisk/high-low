@@ -7,7 +7,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Layout />} >
+        <Route path='/high-low' element={<Layout />} >
           <Route index path="" element={<HomePage />} />
           <Route path="weather" element={<WeatherPage />} />
           <Route path="population" element={<PopulationsPage />} />
