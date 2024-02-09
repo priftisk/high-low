@@ -7,7 +7,7 @@ export default function IsChoiceCorrect({ score, choiceMade }) {
     if (choiceMade === true) {
       setTimeout(() => {
         setShow(true);
-      }, 1000);
+      }, 2000);
     }
   }, [choiceMade]);
   if (show) {

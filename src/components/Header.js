@@ -59,7 +59,7 @@ export default function Header() {
     <div style={styles.root}>
       <AppBar position="static" sx={styles.appBar}>
         <Toolbar sx={styles.toolbar}>
-          <Box sx={styles.box} onClick={() => navigate('/high-low')}>
+          <Box sx={styles.box} onClick={() => navigate('/')}>
             <Typography variant="h6" component="div" sx={styles.typographyHigh}>
               High
             </Typography>
