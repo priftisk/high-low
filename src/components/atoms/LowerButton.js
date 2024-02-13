@@ -1,12 +1,12 @@
-import { Typography, IconButton } from "@mui/material";
+import { Typography, IconButton, Box } from "@mui/material";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { Fragment } from "react";
 export default function LowerButton({ onClick }) {
   return (
-    <Fragment>
+    <Box display={'flex'} flexDirection={'column'} gap={0} alignItems={'center'}>
       <Typography color={'white'}>Lower</Typography>
       <IconButton
-        size="large"
+        size="small"
         disableFocusRipple
         disableRipple
         onClick={onClick}
@@ -16,11 +16,11 @@ export default function LowerButton({ onClick }) {
           sx={{
             color: "red",
             padding: "1rem",
-            fontSize:'4rem',
+            fontSize:'2rem',
             borderRadius: "1rem",
           }}
         />
       </IconButton>
-    </Fragment>
+    </Box>
   );
 }

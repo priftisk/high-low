@@ -5,9 +5,8 @@ import { cityNames } from "../data/cityNames";
 import PrevWeatherCard from "../components/organisms/Weather/PrevWeatherCard";
 import NextWeatherCard from "../components/organisms/Weather/NextWeatherCard";
 import ShowScore from "../components/organisms/ShowScore";
-import HigherButton from "../components/atoms/HigherButton";
-import LowerButton from "../components/atoms/LowerButton";
 import IsChoiceCorrect from "../components/atoms/IsChoiceCorrect";
+import ShowScoreNumber from "../components/organisms/ShowScoreNumber";
 export default function WeatherPage() {
   const [prevResult, setPrevResult] = useState("");
   const [nextResult, setNextResult] = useState("");
@@ -41,6 +40,7 @@ export default function WeatherPage() {
 
   const handleNext = async () => {
     setChoiceMade(false);
+    setChoice(null);
     setPrevResult(nextResult);
     const next = await getRandomCity();
     setNextResult(next);
@@ -52,17 +52,27 @@ export default function WeatherPage() {
       display={"flex"}
       flexDirection={"column"}
       backgroundColor="#262926"
-      minHeight={"90vh"}
+      minHeight={"92vh"}
+      justifyContent={"center"}
       alignContent={"center"}
     >
-      <ShowScore
-        prevResult={prevResult?.main?.temp}
-        nextResult={nextResult?.main?.temp}
-        choice={choice}
-        score={score}
-        setScore={setScore}
-        choiceMade={choiceMade}
-      />
+      <Box
+        position={"absolute"}
+        top={100}
+        display={"flex"}
+        alignItems={"center"}
+        justifyContent={"center"}
+        width={"100%"}
+      >
+        <ShowScoreNumber
+          prevResult={prevResult?.main?.temp}
+          nextResult={nextResult?.main?.temp}
+          choice={choice}
+          score={score}
+          setScore={setScore}
+          choiceMade={choiceMade}
+        />
+      </Box>
       <Grid
         container
         display={"flex"}
@@ -70,22 +80,51 @@ export default function WeatherPage() {
         gap={2}
         alignContent={"center"}
         justifyContent={"center"}
-        mt={12}
       >
-        <Grid item>
+        <Grid
+          item
+          xs={10}
+          md={2}
+          alignItems={"center"}
+          justifyContent={"center"}
+          display={"flex"}
+        >
           {prevResult && (
             <PrevWeatherCard
               cityName={prevResult.name}
               country={prevResult.sys.country}
               temp={prevResult.main.temp}
               description={prevResult.weather[0].description}
+              setChoice={setChoice}
+              choice={choice}
+              setChoiceMade={setChoiceMade}
             />
           )}
         </Grid>
-        <Grid item mt={5}>
-          <Typography color={'white'} fontSize={'3.5rem'}>VS</Typography>
+        <Grid
+          item
+          xs={2}
+          alignItems={"center"}
+          justifyContent={"center"}
+          display={"flex"}
+          mx={1}
+        >
+          {choiceMade === false ? (
+            <Typography color={"white"} textAlign={"center"} fontSize={"3rem"}>
+              VS
+            </Typography>
+          ) : (
+            <IsChoiceCorrect score={score} choiceMade={choiceMade} />
+          )}
         </Grid>
-        <Grid item>
+        <Grid
+          item
+          xs={10}
+          md={2}
+          alignItems={"center"}
+          justifyContent={"center"}
+          display={"flex"}
+        >
           {nextResult && (
             <NextWeatherCard
               cityName={nextResult.name}
@@ -93,73 +132,21 @@ export default function WeatherPage() {
               temp={nextResult.main.temp}
               description={nextResult.weather[0].description}
               choiceMade={choiceMade}
+              choice={choice}
+              setChoice={setChoice}
+              setChoiceMade={setChoiceMade}
             />
           )}
         </Grid>
       </Grid>
-      {choiceMade === false ? (
-        <Grid
-          container
-          xs={12}
-          spacing={0}
-          direction="row"
-          alignItems="center"
-          justifyContent="center"
-          minWidth={"100vw"}
-          mt={2}
-          gap={2}
-        >
-          <Grid item xs={4} md={1} textAlign={"center"}>
-            <HigherButton
-              onClick={() => {
-                setChoiceMade(true);
-                setChoice("higher");
-              }}
-            />
-          </Grid>
-          <Grid item xs={4} md={1} textAlign={"center"}>
-            <LowerButton
-              onClick={() => {
-                setChoiceMade(true);
-                setChoice("lower");
-              }}
-            />
-          </Grid>
-        </Grid>
-      ) : choiceMade === true ? (
-        <Grid
-          item
-          xs={12}
-          direction={"flex"}
-          flexDirection={"row"}
-          gap={1}
-          marginTop={4}
-          textAlign={"center"}
-        >
-          <IsChoiceCorrect score={score} choiceMade={choiceMade}/>
-        </Grid>
-      ) : null}
-      <Box
+      {/* <Box
         display="flex"
         justifyContent="center"
         alignItems="center"
         minHeight="10vh"
       >
-        <Typography
-          variant="h3"
-          fontWeight={"bold"}
-          sx={{
-            color: "black",
-            background: "#7e8780",
-            minWidth: 200,
-            width: 220,
-            borderRadius: "1rem",
-            padding: 1,
-          }}
-        >
-          Σκορ: {score.filter((item) => item === true).length}
-        </Typography>
-      </Box>
+        <ShowScoreNumber score={score} />
+      </Box> */}
     </Grid>
   );
 }

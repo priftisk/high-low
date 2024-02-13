@@ -1,6 +1,7 @@
 import { Grid } from "@mui/material";
-import MainWeatherPage from "./MainPageWeather";
-import MainPageMovies from "./MainPagePopulations";
+import MainPageCard from "../organisms/MainPageCard";
+import Groups from "@mui/icons-material/Groups";
+import Thermostat from "@mui/icons-material/Thermostat";
 export default function MainPageCards() {
   return (
     <Grid
@@ -12,9 +13,16 @@ export default function MainPageCards() {
       gap={1}
       minHeight={"100vh"}
     >
-      <MainWeatherPage />
-
-      <MainPageMovies />
+      <MainPageCard
+        text={"Weather"}
+        icon={<Thermostat sx={{ fontSize: "10rem" }} />}
+        linkTo={"weather"}
+      />
+      <MainPageCard
+        text={"Population"}
+        icon={<Groups sx={{ fontSize: "10rem" }} />}
+        linkTo={"population"}
+      />
     </Grid>
   );
 }

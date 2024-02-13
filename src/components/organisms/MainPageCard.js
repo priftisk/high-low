@@ -1,21 +1,19 @@
-import { IconButton, Typography, Box } from "@mui/material";
-import GroupsIcon from "@mui/icons-material/Groups";
-import Slide from "@mui/material/Slide";
+import { Slide, Box, IconButton, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-export default function MainPagePopulations() {
+export default function MainPageCard({ text, icon, linkTo }) {
   return (
     <Slide direction="down" in={true} mountOnEnter timeout={500}>
-      <Link to="population" style={{textDecoration:'none'}}>
+      <Link to={linkTo} style={{ textDecoration: "none" }}>
         <Box
           sx={{
             width: "20rem",
             height: "20rem",
-            backgroundColor: "#4d524e",
             borderRadius: "1rem",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
+            "&:hover": { backgroundColor: "#4d524e" },
             "&:hover .icon": { color: "#9a62bd" },
             "&:hover .title": { color: "#9a62bd" },
           }}
@@ -30,13 +28,13 @@ export default function MainPagePopulations() {
             }}
             size="10rem"
           >
-            <GroupsIcon sx={{ fontSize: "10rem" }} />
+            {icon}
           </IconButton>
           <Typography
             className="title"
-            sx={{ fontSize: "2rem", color: "white", transition:'color 0.5s' }}
+            sx={{ fontSize: "2rem", color: "white", transition: "color 0.5s" }}
           >
-            Population
+            {text}
           </Typography>
         </Box>
       </Link>
