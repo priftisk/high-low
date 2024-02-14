@@ -14,6 +14,7 @@ export default function NextWeatherCard({
   country,
   setChoice,
   setChoiceMade,
+  hintsTaken
 }) {
   const [show, setShow] = useState(false);
   const isSelected = choice === "higher";
@@ -101,7 +102,7 @@ export default function NextWeatherCard({
                       {cityName},
                     </Typography>
                     <Typography variant="body1" component="div">
-                      {country}
+                      {hintsTaken || choiceMade ? country : '(?)'}
                     </Typography>
                   </Box>
                   <Typography fontSize={"2.5rem"} textAlign={"center"}>

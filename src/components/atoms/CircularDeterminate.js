@@ -16,5 +16,5 @@ export default function CircularDeterminate() {
     };
   }, []);
 
-  return <CircularProgress variant="determinate" value={progress} sx={{'.MuiCircularProgress-circle':{color:'#93dbc0'}}}/>;
+  return <CircularProgress size="2rem"  variant="determinate" value={progress} sx={{'.MuiCircularProgress-circle':{color:'#93dbc0'}}}/>;
 }
