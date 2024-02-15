@@ -44,7 +44,7 @@ export default function WeatherPage() {
     setChoice(null);
     setPrevResult(nextResult);
     const next = await getRandomCity();
-    // setHintsTaken(false)
+    setHintsTaken(false)
     setNextResult(next);
   };
 
@@ -65,6 +65,7 @@ export default function WeatherPage() {
         alignItems={"center"}
         justifyContent={"center"}
         width={"100%"}
+        gap={2}
       >
         <ShowScoreNumber
           prevResult={prevResult?.main?.temp}
@@ -74,12 +75,12 @@ export default function WeatherPage() {
           setScore={setScore}
           choiceMade={choiceMade}
         />
+         <ShowHints hintsTaken={hintsTaken} setHintsTaken={setHintsTaken}/>
       </Box>
       <Grid
         container
         display={"flex"}
-        flexDirection={"row"}
-        gap={2}
+        // gap={2}
         alignContent={"center"}
         justifyContent={"center"}
       >
@@ -120,7 +121,6 @@ export default function WeatherPage() {
               >
                 VS
               </Typography>
-              <ShowHints hintsTaken={hintsTaken} setHintsTaken={setHintsTaken}/>
             </Box>
           ) : (
             <IsChoiceCorrect score={score} choiceMade={choiceMade} />

@@ -5,11 +5,11 @@ import DangerousIcon from "@mui/icons-material/Dangerous";
 
 export default function IsChoiceCorrect({ score, choiceMade }) {
   return (
-    <Box display={"flex"} flexDirection={"row"} alignItems={"center"}>
+    <Box display={"flex"} flexDirection={"row"} alignItems={"center"} py={1}>
       {score[score.length - 1] === true ? (
-        <Check sx={{ color: "green", fontSize: "4rem" }} />
+        <Check sx={{ color: "green", fontSize: "2rem" }} />
       ) : (
-        <DangerousIcon sx={{ color: "red", fontSize: "4rem" }} />
+        <DangerousIcon sx={{ color: "red", fontSize: "2rem" }} />
       )}
       <CircularDeterminate />
     </Box>

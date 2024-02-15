@@ -22,13 +22,14 @@ export default function PrevWeatherCard({
     <Slide direction="right" in={show} mountOnEnter timeout={500}>
       <Card
         sx={{
-          minWidth: 300,
+          minWidth: 200,
           background: "#4d524e",
           borderRadius: "1rem",
           borderBottom: 1,
           borderRight: 1,
-          borderWidth: "0.5rem",
           borderColor: isSelected ? "orange" : "black",
+          borderWidth: "0.5rem",
+          width: 300,
         }}
       >
         <ButtonBase
@@ -46,14 +47,6 @@ export default function PrevWeatherCard({
               justifyContent="space-between"
             >
               <Box display={"flex"} flexDirection={"column"}>
-                <Typography
-                  textAlign={"start"}
-                  sx={{ fontSize: 14 }}
-                  color="white"
-                  gutterBottom
-                >
-                  Current
-                </Typography>
                 <Box
                   display={"flex"}
                   flexDirection={"column"}
@@ -69,7 +62,9 @@ export default function PrevWeatherCard({
                       {country}
                     </Typography>
                   </Box>
-                  <Typography fontSize={"2.5rem"} textAlign={'center'}>{temp} °C</Typography>
+                  <Typography fontSize={"2.5rem"} textAlign={"center"}>
+                    {temp} °C
+                  </Typography>
                 </Box>
               </Box>
             </Box>

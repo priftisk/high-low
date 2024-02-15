@@ -74,14 +74,6 @@ export default function NextWeatherCard({
           <CardContent>
             <Box paddingLeft={2} display={"flex"} flexDirection={"row"}>
               <Box display={"flex"} flexDirection={"column"}>
-                <Typography
-                  textAlign={"start"}
-                  sx={{ fontSize: 14 }}
-                  color="white"
-                  gutterBottom
-                >
-                  Next
-                </Typography>
                 <Box
                   component={"div"}
                   display={"flex"}
